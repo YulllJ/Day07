@@ -1,0 +1,74 @@
+$ls 디렉토리 종류 보기
+$touch abc.txt 파일만들기 
+$git init 현재폴더 git이 관리
+$rm abc.txt 파일 제거
+git 이 관리시 변환하는 상황을 trace (.git생기면 그거가 하는거, .git은 ls해도 뜨지 않음)
+$ls -a  옵션 설정하면 다 보여줌 숨겨진 .git까지 보여줌
+$clear 화면 깨끗하게(앞에서 친 코드는 남아있어)
+$git status git 상태보여줌(git명령어는 앞에 git붙어있음, 리눅스 명령어와 달라)
+$git add명령어로 untracked된것을 track되게 설정해야
+
+tab누르면 자동완성됨
+
+
+add까지 했을 때 stage에 파일 올렸다 기록은 안했음(무대가 시작되지는 않았음)
+실제로 기록이 되는 것 commit(무대가 시작)
+
+$git commit -m "message"
+어떻게 바뀐건지 저장됨
+커밋 메시지는 Git 저장소에 변경 내용을 기록할 때 함께 작성하는 메시지입니다. 
+각각의 커밋은 코드 변경사항이나 프로젝트의 특정 상태를 나타내며, 커밋 메시지는 이 변경사항을 설명하는 역할을 합니다. 
+이 메시지는 나중에 코드를 리뷰하거나 프로젝트의 히스토리를 추적하는 데 도움이 됩니다.
+
+
+$git config --global user.email "email@gmail.com"
+$git config --global user.name "user.name"
+설정은 한번만 하면 됨
+
+
+파일 변경 내용은 git이 다 알고있다.
+
+$git add . add한 파일들을 다 stage로 올리라는 명령어(띄어쓰기 존재함)
+
+녹색이면 commit할 준비가 됨 빨강이면 안된거
+
+이전 버전으로 왔다갔다 할수있다.
+
+$git log  하면 커밋했던 정보 뜬다. 
+노란색 16진수 누르면 이전 버전으로 돌아갈수있다. (switch됨)
+$git check out 16진수 입력
+그래서 돌아가면 (이전버전이 되면 ) 이후에 생긴 파일이 log해도 안보여
+%%%%
+
+$git checkout - 해서 이전 파일로 다시 돌아갈수있어
+
+하나만 add하고 싶으면 add뒤에 파일 이름
+다 하고 싶으면 add . 해서 다 stage에 올리기
+
+과거로 돌아갔을때는 이전에 커밋한 이후에 생긴 파일도 사라져서 안보여 (커밋한 그 시점 그대로로 돌아가는거)
+checkout-으로 다시 돌아가면 만든거 다 보여
+
+local에서 이런식으로 한 이후에 git hub(분산형 아키텍쳐, 버전관리시스템)에서 하는 것
+다른 사람들과 같이 프로젝트 관리하기 좋다.
+
+화면 작아지면 생략돼서 :가 뜸 
+j는 밑으로 k는 위로 이동하는 키로 볼수있다.
+q 빠져나가는 코드
+commit저장으로 버전 저장후 이전으로 이동이 돼서 개발시 매우 편해
+###########################################################
+echo "# test" >> README.md  readme 에 redirection해서 작성하는 리눅스 명령어 #test부분은 프로젝트명
+git branch -M main 주브랜치 master에서 main으로 바꿈....(인종차별? 노예 역사때문에 master에서 main으로 바꾸는거)
+
+
+git remote add origin https://github.com/YulllJ/test.git
+remote는 local이 아니라 원격으로,, 뒤에 복잡한 주소를 origin으로 부르겠다는 명령어
+git push -u origin main
+origin을 main branch에 upload하는것
+
+
+echo "# test" >> README.md
+repository정보 적는게 README파일임
+
+$git remote -v
+
+.하면 clone시 폴더없이 한번에 잘 저장되도록 바꿀수있어
