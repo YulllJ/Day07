@@ -83,3 +83,20 @@ $git remote remove origin한후에 $git remote add origin 내 레포지토리 �
 해준후에 수정사항 충돌 안나도록 해준후 local로 가져와서 수정한거 위로 올려줘야돼
 로컬하고 같은 버전으로 일치 시캬줘야..?
 git 관리하고 싶지 않으면 gitignore하면 필요없는거,보안지켜야하는거 무시해줌 플러그 인으로 넣어두고 사용하자
+
+$echo "이거는 어떤프로젝트인지 설명하는 내용">>README.md하면 여기에 어떤 건지 저장하는 것
+
+status로 확인해서 git이 바꾸는걸 tracking했으면 하는 것을 제외하고 다 unstage해준다.$git rm --cached idea./이런식으로..
+ 그후에 commit하면 된다.
+
+gitignore는 플러그인해서 한것 프로젝트 우클릭후 새로만들기 하면 gitignore설정에서 파이썬 관련해서 알수있어 그치만 이미 git이 tracking중이었다면 하나하나 다 입력해서 unstage해줘야 한다.
+
+master에서 main으로 바꿔주는 $git branch -m  main으로 해서 master로 표기된거를 main으로 바꿔주자 좌측 가장 밑에 있는 git에 가면 어떤게 commit된지 알수있다.
+
+gnore했지만 잘안된건 unstage해줬음 주석 지워서 ignore되게 하기도 그러면 이제 git이 바뀌어도 관심x add된 애들만 git이 tracking되는 것
+
+
+다른 사람의 git에서 긁어올때는 $git clone 그사람의 https하면 된다.
+
+1일차 수업 정리 
+url.kr/91u6t7
