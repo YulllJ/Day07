@@ -82,3 +82,4 @@ $git remote remove origin한후에 $git remote add origin 내 레포지토리 �
 
 해준후에 수정사항 충돌 안나도록 해준후 local로 가져와서 수정한거 위로 올려줘야돼
 로컬하고 같은 버전으로 일치 시캬줘야..?
+git 관리하고 싶지 않으면 gitignore하면 필요없는거,보안지켜야하는거 무시해줌 플러그 인으로 넣어두고 사용하자
