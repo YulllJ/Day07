@@ -72,3 +72,9 @@ repository정보 적는게 README파일임
 $git remote -v
 
 .하면 clone시 폴더없이 한번에 잘 저장되도록 바꿀수있어
+
+
+$git remote add origin 레포지토리 주소 하면 origin이 레포지토리 주소 되는 것
+$git remote -v하면 remote에서 주소 보여줌
+$git push -u origin main 하면 origin주소로 파일 다 푸시해서 githubㅔ 저장 가능
+다른 사람거 git clone할거면 clone하고 나서 origin 제거하고 내걸로 재 설정해줘야돼
