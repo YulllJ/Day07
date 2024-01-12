@@ -78,3 +78,6 @@ $git remote add origin 레포지토리 주소 하면 origin이 레포지토리 �
 $git remote -v하면 remote에서 주소 보여줌
 $git push -u origin main 하면 origin주소로 파일 다 푸시해서 githubㅔ 저장 가능
 다른 사람거 git clone할거면 clone하고 나서 origin 제거하고 내걸로 재 설정해줘야돼
+$git remote remove origin한후에 $git remote add origin 내 레포지토리 주소 해줘야됨
+
+해준후에 수정사항 충돌 안나도록 해준후 local로 가져와서 수정한거 위로 올려줘야돼
