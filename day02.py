@@ -33,15 +33,45 @@
 # # 결과 출력
 # print(result_string)
 
+#
+# dec=65
+# octal=0o101
+# hexadecimal=0x41
+# binary=0b01000001
+# print(binary)
+# print(chr(octal))
+# sub=dec-octal
+# print(sub)
+# print(ord('B'))#대문자 알파벳은 65에서 시작
+# #소문자 알파벳은 97에서 시작
+# #숫자는 48에서 시작
 
-dec=65
-octal=0o101
-hexadecimal=0x41
-binary=0b01000001
-print(binary)
-print(chr(octal))
-sub=dec-octal
-print(sub)
-print(ord('B'))#대문자 알파벳은 65에서 시작
-#소문자 알파벳은 97에서 시작
-#숫자는 48에서 시작
+
+# temp=[]  #비어있어야 false로 취급함
+# if temp:
+#     print("원소 존재")
+# else :
+#     print("비어있는 리스트")
+#
+#
+# temp=[0]
+# if temp:
+#     print("원소 존재")
+# else :
+#     print("비어있는 리스트")
+#
+#
+# #vowels='aeiou'
+# vowels={'a','e','i','o','u'}
+# letter=input("alphabet letter: ")
+# print(type(letter))
+# if letter in vowels :
+#     print(letter,'is a vowel')
+# else:
+#     print(f'{letter} is a conconant!')
+# #중괄호: set , 대괄호:list, 소괄호: tuple, 중괄호 & 키 밸류: dictionary
+l=[1,3,3,2,4] #list
+s={1,3,3,2,4} #set
+print(l, s) #list는 그대로 출력, set은 원소 하나씩만나오고 정렬됨
+#둘다 mutable한 자료형이라 안에 원소 바꾸기 가능함
+print(type(l), type(s))
