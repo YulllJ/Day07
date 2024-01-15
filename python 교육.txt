@@ -100,3 +100,7 @@ gnore했지만 잘안된건 unstage해줬음 주석 지워서 ignore되게 하�
 
 1일차 수업 정리 
 url.kr/91u6t7
+
+git push -u origin main으로
+git push 원격보다 로컬이 앞서나갈떄 로컬에서 원격으로 git push -u origin main 하면 경로 설정돼있어서 git push만 해도 잘 올라가져
+git pull 로컬에서 원격으로(협업시 계속 pull해주면서 바뀐 상황 반영하면서 작업해야)

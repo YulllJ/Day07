@@ -1,2 +1,1 @@
-git practice
-local revised version
+2024 KEB BootCamp python Day01-Git setting
