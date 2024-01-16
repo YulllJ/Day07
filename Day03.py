@@ -147,5 +147,22 @@ print((range(0, 3)))
 #역순으로 출력하는 방법도 range 설정해서 가능함
 #숫자 두개 입력해서 50과 100 사이에서 소수가 출력되는 함수를 만들어라
 #innput두개 따로 받거나 split하거나 해서 받아오면됨 21 10 입력받아도 10 21 입력 받아도 그사이의 출력 값을 하자
+numbers=input("Input first second number : ").split()
+n1=int(numbers[0])
+n2=int(numbers[1])
+if n1 > n2:
+    n1, n2 = n2, n1
+#파이썬은 이렇게 바로 가능 (packing, unpacking의 관계임)
+for number in range(n1, n2+1):
+    is_prime = True
 
+    if number < 2:
+        #print(f'{number} is not prime number')
+        pass #아무것도 하지 않는데 지나갈 때 사용하는 코드 continue는 위로 올라가는 것임
+    else :
+        for i in range(2, number):
+            if number % i == 0:
+                is_prime = False
+                break
+        if is_prime: print(number, end=' ')
 
