@@ -95,3 +95,19 @@ print("{0[python]} {0[data structure]}".format(subjects))
 #         continue#짝수의 경우 continue를 만나서 위로 올라감
 #     print(number, "squared is ", number*number)
 # #홀수만 제곱돼서 출력됨
+number = int(input("input number: "))
+is_prime = True #int를 bool로
+#cnt = 0
+i = 2
+while i < number:
+    if number % i == 0:
+        #cnt = cnt + 1
+        is_prime = False  #remove count
+        break#약수가 발생하는 시점에서 탈출해야 그 뒤는 돌 필요 없으니까
+    i = i + 1
+    print(i, 'end')# break 유무 확인해보자 break로 프로그램이 쓸데없이 돌아가는 횟수 훨씬 줄임
+#if cnt == 0:
+if is_prime :    #bool이라 비교없이 바로 가능
+    print(f'{number} is prime number')
+else:
+    print(f'{number} is not prime number')
