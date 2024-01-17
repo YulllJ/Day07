@@ -1,6 +1,6 @@
 
 #empty tuple은 ,없어도 tuple가능하다.
-t0= ()#boolean에서 empty는 false로 처리됨
+t0 = ()#boolean에서 empty는 false로 처리됨
 print(type(t0), type(tuple()))
 t1 = (5)
 t2 = 5,
@@ -30,11 +30,17 @@ t9 = 1, 2, 3
 t10 = 1, 2
 print(type(t9))
 print(t9 <= t10)
-#tuple간 비교연산이 가능하다
+t10 = 1, 21
+print(t9 <= t10)
+#tuple간 비교연산이 가능하다 원소 개수가 아닌 원소끼리 차례대로 계산해내는 것
 #tuple,list는 sequence가 존재하는 자료형 iteration으로 꺼낼 수 있어
 words= ('fresh')
 #튜플은 immutable임, t1+=t2를 하면 값이 바뀌는게 아니라 새로운 id를 만들어서 집어넣는것
-t1='say','ery','fdsf','fdf'
-t2= 'fdf' , 'fdsf'
-t1+=t2
+t1 ='say', 'ery', 'fdsf', 'fdf'
+t2 = 'fdf', 'fdsf'
+t1 += t2
 print(t1)
+#머신러닝에서는 list대신해서 numpy배열로 대체됨
+l=[200,'fd',()]#list는 배열과 다르게 다른 타입도 담을 수 있다.
+#tuple은 원래 못바꿔 list로 바꿔서 바꿀수 있도록 한다음에 다시 tuple로 해서 바꿀수 있어 ( 참조 이름만 같을뿐 새로 만들어진거라 원본과 다름, 메모리 위치가 달라지게 된다.)
+#split은 list로 바꿔준다. 역방향 인덱싱도 가능함. [0:2]0에서 시작해서 2번 앞에 까지
