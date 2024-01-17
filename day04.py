@@ -12,7 +12,7 @@ for number in range(n1, n2+1):
         pass #아무것도 하지 않는데 지나갈 때 사용하는 코드 continue는 위로 올라가는 것임
     else :
         i = 2
-        while i*i < number:#계산량 줄이기 위한것
+        while i*i <= number:#계산량 줄이기 위한것
         #소수일때 if문이 다 돈다는 문제점 발생
             if number % i == 0:
                 is_prime = False
