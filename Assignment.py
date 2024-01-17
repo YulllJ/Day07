@@ -111,3 +111,4 @@ while True:
 #         if is_prime:
 #             pass
 #             print(number, end=' ')
+#책에 있는 예제 205쪽 8.10까지
