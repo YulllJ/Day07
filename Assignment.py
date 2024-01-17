@@ -1,4 +1,4 @@
-
+#예외처리, 중복된 코드, 계산량도 발생, 입력받는 부분도 가독성 높이고 간결하게 줄이기 가능, 소수 아닐때는 반복문 금방 끝내버리지만 소수일떄는 쓸데없이 반복문 돌아
 while True:
     menu = input("1) Farenheit -> Celsius 2) Celsius -> Farenheit  3) is_Prime 4) is_Prime in range 5) Quit Program: ")
     if menu == '1' :
