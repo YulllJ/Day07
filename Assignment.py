@@ -1,6 +1,6 @@
 
 while True:
-    menu = input("1) Farenheit -> Celsius 2) Celsius -> Farenheit  3) is_Prime 4) is_Prime in 3range 5) Quit Program: ")
+    menu = input("1) Farenheit -> Celsius 2) Celsius -> Farenheit  3) is_Prime 4) is_Prime in range 5) Quit Program: ")
     if menu == '1' :
         farenheit=float(input('Input Farenheit : '))
         print(f'Farenheit :{farenheit}F, Celsius : {((farenheit-32.0)*5/9):.4f}C')
@@ -45,7 +45,7 @@ while True:
                 if is_prime: print(number, end=' ')
         print("\n")
 
-    elif menu = 5:
+    elif menu == '5':
         print("terminate program")
         break
     else :
