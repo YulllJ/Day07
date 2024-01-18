@@ -31,16 +31,39 @@ def isprime(n) -> bool: #-> bool 안써도 되는데 어떤 타입으로 반환�
 help(isprime)#우리가 작성한 함수에 대한 설명이 나옴 #help는 작성법같은거 알려줘 빌트인 함수들도 다 설명해줌
 
 
-numbers = input("Input first second number : ").split()
-n1 = int(numbers[0])
-n2 = int(numbers[1])
-if n1 > n2:
-    n1, n2 = n2, n1
-# 파이썬은 이렇게 바로 가능 (packing, unpacking의 관계임)
-for number in range(n1, n2 + 1):
-    if isprime(number):
-        print(number, end = ' ')
+while True:
+    menu = input("1) Farenheit -> Celsius 2) Celsius -> Farenheit  3) is_Prime 4) is_Prime in range 5) Quit Program: ")
+    if menu == '1' :
+        farenheit=float(input('Input Farenheit : '))
+        print(f'Farenheit :{farenheit}F, Celsius : {((farenheit-32.0)*5/9):.4f}C')
+    elif menu == '2' :
+        Celsius=float(input('Input Celsius : '))
+        print(f'Farenheit :{((Celsius*9/5)+32.0):.4f}F, Celsius : {Celsius}C')
+    elif menu == '3':
+        # prime number
+        number = int(input("Input number : "))
+        if isprime(number):
+            print(f'{number} is prime number')
+        else:
+            print(f'{number} is NOT prime number!')
 
 
+    elif menu == '4':
+        numbers = input("Input first second number : ").split()
+        n1 = int(numbers[0])
+        n2 = int(numbers[1])
+        if n1 > n2:
+            n1, n2 = n2, n1
+
+        for number in range(n1, n2 + 1):
+            if isprime(number):
+                print(number, end=' ')
+        print("\n")
+
+    elif menu == '5':
+        print("terminate program")
+        break
+    else :
+        print("Invalid value")
 
 
