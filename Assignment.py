@@ -42,3 +42,42 @@ squares={i: i*i for i in range(10)}
 #squares={i: i**2 for i in range(10)}
 
 print(squares)
+# 8.11
+odd={i for i in range(10) if i % 2 != 0}
+print(odd,type(odd))
+# 8.12
+# generator comprehension은 list comprehencion과 비슷하지만 ()를 쓴다.
+string='Got'
+for i in string:
+    print(i)
+for i in range(10):
+    print(i)
+# 8.13
+key=("optimist","pessimist","troll")
+value=('The glass is half full', "The glass is half empty", "How did you get a glass?")
+kvdict={}
+for key, value in zip(key, value):
+    temp={key:value}
+    kvdict.update(temp)
+print(kvdict,type(kvdict))
+# 8.14
+titles=['Creature of Habit', 'Crewel Fate']
+plots=['Anun turns into a mon ster', 'A haunted yarn shop']
+kvdict={}
+for key, value in zip(titles, plots):
+    temp = {key: value}
+    kvdict.update(temp)
+print(kvdict, type(kvdict))
+'''
+# 8.13
+key = ("optimist", "pessimist", "troll")
+value = ('The glass is half full', 'The glass is half empty', 'How did you get a glass?')
+kvdict = dict(zip(key, value))
+print(kvdict, type(kvdict))
+
+# 8.14
+titles = ['Creature of Habit', 'Crewel Fate']
+plots = ['Anun turns into a monster', 'A haunted yarn shop']
+kvdict = dict(zip(titles, plots))
+print(kvdict, type(kvdict))
+'''
