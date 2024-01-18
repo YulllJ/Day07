@@ -12,6 +12,34 @@
 # is&*&$라고 이름 떠진 것은 boolean type이라는게 명확히 잘보인다.
 # 객체지향설계 원칙 SOLID
 # 그중 S..책임 = 기능 <단일 책임 원칙> 하나의 클래스, 하나의 함수는 맡은 바 하나만 잘하면 된다. 각각의 기능에 충실하게
+def isprime(n) -> bool: #-> bool 안써도 되는데 어떤 타입으로 반환되는지 명시적으로 적어주는 것
+    '''#3개 치면 주석구문 작성 가능
+    매개변수로 넘겨 받은 수가 소수인지 여부 boolean으로 리턴
+    :param n: 판정할 수 # """하면 함수 파라미터 어떤거인지 typing 가능하게 나옴"""
+    :return: 소수면 True, 소수가 아니면 False
+    '''
+    if n < 2:
+        return False
+    else:
+        i = 2
+        while i*i <= n:
+            if n % i == 0:
+                return False
+            i += 1
+    return True
+
+help(isprime)#우리가 작성한 함수에 대한 설명이 나옴 #help는 작성법같은거 알려줘 빌트인 함수들도 다 설명해줌
+
+
+numbers = input("Input first second number : ").split()
+n1 = int(numbers[0])
+n2 = int(numbers[1])
+if n1 > n2:
+    n1, n2 = n2, n1
+# 파이썬은 이렇게 바로 가능 (packing, unpacking의 관계임)
+for number in range(n1, n2 + 1):
+    if isprime(number):
+        print(number, end = ' ')
 
 
 
