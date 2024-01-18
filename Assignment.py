@@ -20,10 +20,12 @@ def test(f):
         print(f())
         print("end")
     return inner #inner함수 꼭 반환 해줘야한다.
-@test
+@test #decorator가 inner함수의 기능 확장한거 확인 가능
 def good():
     return ['Harry','Ron','Hermione']
+
 print(good())
+
 #9.4
 short_list=[1,2,3]
 position=5
