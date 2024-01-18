@@ -49,12 +49,15 @@ while True:
 
 
     elif menu == '4':
-        numbers = input("Input first second number : ").split()
-        n1 = int(numbers[0])
-        n2 = int(numbers[1])
-        if n1 > n2:
-            n1, n2 = n2, n1
-
+        #map으로 대체 가능
+        n1,n2=map(int,input("Input first second number: ").split())
+        # numbers = input("Input first second number : ").split()
+        # n1 = int(numbers[0])
+        # n2 = int(numbers[1])
+        # if n1 > n2:
+        #     n1, n2 = n2, n1
+        #max,min함수로 바꾸기
+        n1,n2=min(n1,n2), max(n1,n2)
         for number in range(n1, n2 + 1):
             if isprime(number):
                 print(number, end=' ')
