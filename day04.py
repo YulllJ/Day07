@@ -130,3 +130,7 @@ while True:
 # remove와 pop의 차이를 제대로 이해하자
 # deepcopy한거는 안바뀌어, shallow copy는 바뀌어
 # set은 dictionary와 비슷함 하나씩만 존재한다?
+
+# tuple은 comprehension없어 dictionary랑 list만 존재한다
+# 예약어 키워드 띄어쓰기 특수기호 있는 문자로 dict로 불가능하다.
+# key값은 immutable한 값만 가능하다.

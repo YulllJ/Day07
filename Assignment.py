@@ -38,4 +38,7 @@ print(life[keys[0]].keys())
 print(life[keys[0]].values())
 #8.10
 squares={i: i*i for i in range(10)}
+#squares={i: pow(i,2) for i in range(10)}
+#squares={i: i**2 for i in range(10)}
+
 print(squares)
