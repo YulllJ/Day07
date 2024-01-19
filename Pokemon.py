@@ -67,7 +67,7 @@ def set_player(start):
 
 
 
-
+import random
 if __name__ == "__main__":
     state = "Start"
     mode = None  # mode 변수를 전역 변수로 선언 및 초기화
@@ -75,9 +75,11 @@ if __name__ == "__main__":
     global start
     start=1
     my_monster = []  # monster list 형태로 저장
-    character_list={'pikachu':("electric","skill 1","skill 2","skill 3") , 'charizard':("타입","skill 1","skill 2","skill 3"), '이름':("타입","skill 1","skill 2","skill 3")}
+    character_dict={'pikachu':("electric","skill 1","skill 2","skill 3") , 'charizard':("타입","skill 1","skill 2","skill 3"), '이름':("타입","skill 1","skill 2","skill 3")}
     player1=set_player(start)
-
+    random_pair= random.choice(list(character_dict.items()))
     #player정보 setting끝
+    AImonster=Monster("AImonster",random_pair)
 
+    print(AImonster.information())
 
