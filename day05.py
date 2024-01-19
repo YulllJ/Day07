@@ -201,6 +201,7 @@ for x in r:
 #데코레이터(@decorator)를 사용하면 데코레이터 함수의 내부(inner) 함수가 원래 함수에 대한 기능을 확장하거나 수정하는데 사용됨
 # 데코레이터는 기존 함수를 취해서 새로운 함수를 반환하는 함수이므로, 데코레이터가 적용된 함수를 호출하면 데코레이터 함수의 내부 함수가 실행된다.
 # 즉, @description이라고 적은 함수인 power안에 description함수의 inner함수가 들어가있는 것 처럼 확장이 되는 것이다.
+#inner 함수가 실행되는게 아니야 걔는 독립적으로 존재하는 것
 def description(f):  # closure
     def inner(*args):
         print(f.__name__)#함수 이름 print
@@ -231,3 +232,18 @@ def power(b, e):
 f1 = description(squares)
 print(f1(9))#원래 함수 출력
 print(power(2, 10))#power는 description inner함수 기능 없었는데 @해줘서 기능이 확장된 것!
+
+def desc(f):
+    def wrapper():
+        print("study")
+        f()
+
+    print("a")
+    return wrapper
+
+def something():
+    print("do somethine~")
+
+s=desc(something)#객체 직접 선언해서 해봐야 하는 것 @해서 사용도 가능함
+s() #값을 기억하고 있다가 실행하면 동작하는 것 wrapper안이 실제로 실행된다는게 아니야
+# wrapper를 불러와서 실행하는게 아니라 s()에 decorator된 값을 가진 확장된 함수가 되는 것인듯..
