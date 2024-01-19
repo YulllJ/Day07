@@ -38,4 +38,22 @@ print(globals())
 # 동기화의 장점 :  단점 : 느려져  비동기의 장점 : 빨라 단점 : 가장 늦게끝나는 사람을 기준으로 완료돼?
 # index는 못찾으면 예외를 던짐
 # try안에 예외 발생할 가능성이 있는 코드들을 넣어주고 except로 처리해주는 방식
-#
+import random
+numbers= list()
+# for i in range(1,5):
+#     numbers.append(random.randint(1,100)) # 정수형 난수 발생기
+numbers=[random.randint(1,100)for i in range(10)] # 이렇게 잘성할수도 있어 알아둬야
+try: #예외발생여지 있으면 넣어주자
+    pick=int(input(f"Input index (0~{len(numbers)-1}):")) #가변적으로 길이 되게 len으로 해주는게 제일 좋아
+    print(numbers[pick])
+    print(5/0) #이 오류도 exception으로 흘려가버려 어떤 에러인지 다시 확인해서 except해준다.
+except IndexError as err:#err은 시스템이 던져준 에러 메시지 받아서 저장하는것 err출력하면가능 변수 이름 err로 안해도 돼 아무 변수로 시스템이 던져준 에러메시지 as로 받을수 있는 것
+    #이렇게 구체적으로 적으면 에러 종류에 맞게 except로 흘러가게됨
+    #pick하려는 index에서 발생하는 것
+    print(f"Out of range: Wrong index number\n {err}") #이런식으로 깔끔하게 나오도록 예외처리 해주는 것 뭐가 문제인지 알려주는 식으로.. but 인덱스 에러가 아닌것도 잡아버려 string입력해도 발생한 에러는 except가 뜨는거임
+except ValueError as err:#어떤 에러인지 정확하게 써주면 된다.
+    print(f"Input Only Number~\n {err}")#integer함수가 변환하는 과정에서 발생하는 value error
+except ZeroDivisionError as err:
+    print(f'The denominator cannot be 0. \n {err}')
+except Exception:# 위에 종류 아닌것들은 여기로..
+    print("Error occurs") # 얘는 제일 아래에 와야한다. 위에 있으면 인덱스에러도 여기에 해당돼서 동작 제대로 안하게됨
