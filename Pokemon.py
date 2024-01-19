@@ -17,14 +17,25 @@ class Player:
         self.name = _id
         self.level = 0
         print(f"Player: {self.name}, Level: {self.level}")
-
+        self.my_monster = []  # monster list 형태로 저장 객체들을 받아야돼
+    def get_monster(self,monster):
+        self.my_monster.append(monster)
+    def monster_dictionary(self):
+        print(f"내가 가진 monster : ")
+        try:
+            for i in self.my_monster :
+               i.information()
+        except:
+            print("monster도감 오류")
 class Monster:
-    def __init__(self,name,character):
+    def __init__(self,name,character_pair):
         self.name = name
-        self.character=character
+        self.character,self.type_skill=character_pair#dictionary로 받아야 character는 key, skill은 values
         self.level = 0
-    def attack(self):
-        print(f"{self.name}이(가) {self.skill} 공격을 했다!")
+        self.type_skill=list(self.type_skill)
+        self.type, self.skill = self.type_skill[0], self.type_skill[1:]
+    def attack(self,attack):
+        print(f"{self.name}이(가) {self.skill[attack]} 공격을 했다!")
     def information(self):
         print(f'name: {self.name} character: {self.character} level: {self.level}')
 def print_initial_state():
@@ -64,7 +75,7 @@ def set_player(start):
         elif start == 1:
             print("mode error")
 
-
+#def battle(player,monster):
 
 
 import random
@@ -74,12 +85,15 @@ if __name__ == "__main__":
     memo = None  # memo 변수가 어디서 정의되는지에 따라 초기값을 설정
     global start
     start=1
-    my_monster = []  # monster list 형태로 저장
+
     character_dict={'pikachu':("electric","skill 1","skill 2","skill 3") , 'charizard':("타입","skill 1","skill 2","skill 3"), '이름':("타입","skill 1","skill 2","skill 3")}
     player1=set_player(start)
-    random_pair= random.choice(list(character_dict.items()))
+    random_key= random.choice(list(character_dict.keys()))
     #player정보 setting끝
-    AImonster=Monster("AImonster",random_pair)
+    character_pair=[random_key,(character_dict[random_key])]
+    AImonster=Monster("AImonster",character_pair)
+    #AI monster setting 끝
 
-    print(AImonster.information())
+    print(AImonster.type, AImonster.skill)
+    AImonster.attack(2)
 
