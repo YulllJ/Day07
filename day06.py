@@ -59,6 +59,15 @@ class Pokemon:
         self.name=name
     def attack(self):
         print("공격!")
+
+    def get_name(self):
+        print("inside getter")
+        return self.name
+    def set_name(self,new_name):
+        print("inside setter")
+        self.name=new_name
+
+
 class Charizard(Pokemon,FlyingMixin):
     pass
 class Gyarados(Pokemon,SwimmingMixin):
@@ -77,3 +86,7 @@ Charizard.attack(c1)# 이렇게 쓰면 누가 공격주체인지 self에 값을 
 print(g1.name)
 g1.name="잉어킹"
 print(g1.name) #외부에서 접근해서 바꿀 수 있어 좋지 않아 private하게 설정 바꿈
+print(g1.get_name())
+g1.set_name("잉어킹")
+print(g1.get_name())
+
