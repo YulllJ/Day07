@@ -27,7 +27,7 @@ class Pokemon:
     # property 2
     @property
     def name(self):
-        return self.hidden_name
+        return self.__hidden_name
     @name.setter
     def name(self, new_name):
         self.hidden_name = new_name
@@ -52,3 +52,6 @@ print(g1.name)
 
 #get_name set_name등록할 필요없이 바로 사용 가능 적용한 함수위에 annotation만 붙이면된다.
 #get은 @property로 @name.setter로
+#property 개념 제대로 이해하기 일반변수가 아님
+#property지만 private하게 설정돼있는게 아니면 보인다 직접 접근이 가능하다. (파이썬은 접근 제한이 없다)
+#비슷하게 접근제한을 흉내내는 방법 #숨기고 싶은 변수 앞에 __을 붙이면 private하게 돼서 접근하지 못해
