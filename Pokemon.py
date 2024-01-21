@@ -21,6 +21,7 @@ class Player:
         monster_name=input("Create your monster name: ")
         new_monster=Monster(monster_name,monster)
         self.my_monster.append(new_monster)
+
     def monster_dictionary(self):
         print(f"내가 가진 monster : ")
         try:
@@ -182,8 +183,9 @@ def battle(player, monster,selected_monster):
         print(f'{player.name}이(가) {monster.character}를 획득합니다!')
         new_monster=[monster.character,monster.type_skill]
         player.get_monster(new_monster)
-    elif monster.hp <= 0 and selected_monster.hp > 0:
+    elif monster.hp > 0 and selected_monster.hp <= 0:
         print(f'{player.name}이(가) 졌습니다')
+        return 0
 def main():
     state = "Start"
     global mode
@@ -198,6 +200,7 @@ def main():
         character_dict = {'이상해씨': ("풀", "덩굴채찍-풀", "몸통박치기", "울음소리"),
                           '파이리': ("불", "불꽃세례-불", "할퀴기", "울음소리"),
                           '꼬부기': ("물", "물대포-물", "몸통박치기", "꼬리흔들기")}
+
         player1 = set_player()
         print("랜덤으로 몬스터를 한마리 갖습니다.")
         initial_key = random.choice(list(character_dict.keys()))
@@ -215,7 +218,8 @@ def main():
                 character_pair = [random_key, (character_dict[random_key])]
                 AImonster = Monster("AImonster", character_pair)
                 # AI monster setting 끝
-                battle(player1,AImonster,selected_monster)
+                if battle(player1,AImonster,selected_monster) == 0:
+                    break
 
             elif game == 2:
                 player1.monster_dictionary()
