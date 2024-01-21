@@ -24,7 +24,7 @@ class Player:
         monster_name=input("Create your monster name: ")
         new_monster=Monster(monster_name,monster)
         self.my_monster.append(new_monster)
-        print(self.my_monster[0])
+        print(type(self.my_monster))
     def monster_dictionary(self):
         print(f"내가 가진 monster : ")
         try:
@@ -132,6 +132,7 @@ def main():
 
             game = print_game()
             if game ==1:
+                character_dict = {'이상해씨': ("풀", "덩굴채찍-풀", "몸통박치기", "울음소리")}
                 random_key = random.choice(list(character_dict.keys()))
                 character_pair = [random_key, (character_dict[random_key])]
                 AImonster = Monster("AImonster", character_pair)
