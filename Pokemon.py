@@ -18,15 +18,23 @@ class Player:
         self.level = 0
         print(f"Player: {self.name}, Level: {self.level}")
         self.my_monster = []  # monster list 형태로 저장 객체들을 받아야돼
+
     def get_monster(self,monster):
-        self.my_monster.append(monster)
+        new_monster = {}
+        monster_name=input("Create your monster name: ")
+        new_monster=Monster(monster_name,monster)
+        self.my_monster.append(new_monster)
+        print(self.my_monster[0])
     def monster_dictionary(self):
         print(f"내가 가진 monster : ")
         try:
             for i in self.my_monster :
-               i.information()
+                print(i)
+                #i.information()
         except:
             print("monster도감 오류")
+
+
 class Monster:
     def __init__(self,name,character_pair):
         self.name = name
@@ -37,7 +45,7 @@ class Monster:
     def attack(self,attack):
         print(f"{self.name}이(가) {self.skill[attack]} 공격을 했다!")
     def information(self):
-        print(f'name: {self.name} character: {self.character} level: {self.level}')
+        print(f'name: [{self.name}] character: [{self.character}] level: [{self.level}]')
 def print_initial_state():
     print("Welcome to Pokemon World!")
     while True:
@@ -92,8 +100,12 @@ def print_game():
             pass
         else:
             print("Retry")
-def battle(player,monster):
-    pass
+def battle(player, monster):
+    print(f'야생의 {monster.name}이(가) 나타났다!!!')
+    print(monster.information())
+    for each_monster in player.my_monster:
+        print(each_monster.skill)
+
 def main():
     state = "Start"
     global mode
@@ -105,23 +117,27 @@ def main():
     start = 1
     while True:
         print_initial_state()
-        character_dict = {'pikachu': ("electric", "skill 1", "skill 2", "skill 3"),
-                          'charizard': ("타입", "skill 1", "skill 2", "skill 3"),
-                          '이름': ("타입", "skill 1", "skill 2", "skill 3")}
+        character_dict = {'이상해씨': ("풀", "덩굴채찍-풀", "몸통박치기", "울음소리"),
+                          '파이리': ("불", "불꽃세례-불", "할퀴기", "울음소리"),
+                          '꼬부기': ("물", "물대포-물", "몸통박치기", "꼬리흔들기")}
         player1 = set_player()
-        random_key = random.choice(list(character_dict.keys()))
+        print("랜덤으로 몬스터를 한마리 갖습니다.")
+        print(player1.my_monster)
+        initial_key = random.choice(list(character_dict.keys()))
+        initial_pair = [initial_key, (character_dict[initial_key])]
+        player1.get_monster(initial_pair)
         # player정보 setting끝
-        character_pair = [random_key, (character_dict[random_key])]
-        AImonster = Monster("AImonster", character_pair)
-
-        # AI monster setting 끝
         print("Game Start!")
         while True:
 
             game = print_game()
             if game ==1:
-                #battle(player1,
-                pass
+                random_key = random.choice(list(character_dict.keys()))
+                character_pair = [random_key, (character_dict[random_key])]
+                AImonster = Monster("AImonster", character_pair)
+                # AI monster setting 끝
+                battle(player1,AImonster)
+
             elif game == 2:
                 player1.monster_dictionary()
             elif game == 3:
