@@ -41,16 +41,15 @@ class Monster:
 def print_initial_state():
     print("Welcome to Pokemon World!")
     while True:
-        temp = input("Select the mode: 1. Player  2. Guest 3. Reset player info 4. Save: ")
-        if temp not in ('1', '2', '3','4'):
+        temp = input("Select the mode: 1. Player  2. Guest 3. Reset player info 4. Save: 5. terminate game")
+        if temp not in ('1', '2', '3','4','5'):
             print("Retry!")
         else:
             global mode
             mode = int(temp)
             break
-def set_player(start):
-    while start:
-        print_initial_state()
+def set_player():
+        global mode, start
         # 여기서 mode가 1이나 2나 3이됨
         if mode == 1 and start == 1:
             if memo is None:
@@ -59,41 +58,82 @@ def set_player(start):
                 player = Player(_id)
                 start = 0
                 return player
-                print("이거?")
             else:
                 pass  # 파일 입출력으로 setting
-        elif mode == 2 and start == 1:
+        elif mode == 2 and start== 1:
             print("Guest Mode!")
             _id = input("Please enter Player name : ")
             player = Player(_id)
             start = 0
             return player
+
         elif mode == 3 and start == 1:
             pass  # 파일 입출력으로 setting
         elif mode == 4 and start == 1:
             pass  # save 파일 입출력으로 setting
+        elif mode == 5 :
+            print("terminate the game")
+            sys.exit(0)
+
         elif start == 1:
             print("mode error")
+def print_game():
 
-#def battle(player,monster):
-
-
-import random
-if __name__ == "__main__":
+    while True : #대문자 아님 주의...
+        menu=input("1.get monster 2.monster dictionary 3.quit game")
+        if menu == '1':
+            print("Start!")
+            return 1
+        elif menu == '2':
+            return 2
+            pass
+        elif menu == '3':
+            return 3
+            pass
+        else:
+            print("Retry")
+def battle(player,monster):
+    pass
+def main():
     state = "Start"
+    global mode
+    global memo
+    global start
     mode = None  # mode 변수를 전역 변수로 선언 및 초기화
     memo = None  # memo 변수가 어디서 정의되는지에 따라 초기값을 설정
-    global start
-    start=1
 
-    character_dict={'pikachu':("electric","skill 1","skill 2","skill 3") , 'charizard':("타입","skill 1","skill 2","skill 3"), '이름':("타입","skill 1","skill 2","skill 3")}
-    player1=set_player(start)
-    random_key= random.choice(list(character_dict.keys()))
-    #player정보 setting끝
-    character_pair=[random_key,(character_dict[random_key])]
-    AImonster=Monster("AImonster",character_pair)
-    #AI monster setting 끝
+    start = 1
+    while True:
+        print_initial_state()
+        character_dict = {'pikachu': ("electric", "skill 1", "skill 2", "skill 3"),
+                          'charizard': ("타입", "skill 1", "skill 2", "skill 3"),
+                          '이름': ("타입", "skill 1", "skill 2", "skill 3")}
+        player1 = set_player()
+        random_key = random.choice(list(character_dict.keys()))
+        # player정보 setting끝
+        character_pair = [random_key, (character_dict[random_key])]
+        AImonster = Monster("AImonster", character_pair)
 
-    print(AImonster.type, AImonster.skill)
-    AImonster.attack(2)
+        # AI monster setting 끝
+        print("Game Start!")
+        while True:
+
+            game = print_game()
+            if game ==1:
+                #battle(player1,
+                pass
+            elif game == 2:
+                player1.monster_dictionary()
+            elif game == 3:
+                break
+            else:
+                print("print game error")
+       # print(print_game())
+        #print(AImonster.type, AImonster.skill)
+       # AImonster.attack(2)
+
+import random
+import sys
+if __name__ == "__main__":
+   main()
 
