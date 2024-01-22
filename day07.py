@@ -9,18 +9,21 @@ def who_says(obj):
 # __하나나 양쪽에 있는 것은 내부적으로 정의돼있어 magic mathod:C++의 연산자 오버로딩과 같다.
 # == 는 isequal과 같아... magic method를 통해서 인수 받아서 만드는 함수가 아니라 연산자에 새로운 기능을 설정해서 사용할수있도록 한것
 #magic method
-class FlyingMixin:
+class FlyingBehavior:
     def fly(self):
-        return f"{self.__name}이(가) 하늘을 훨훨 날아갑니다~"
-
-class SwimmingMixin:
+        return f" 하늘을 훨훨 날아갑니다~"
+class NoFly(FlyingBehavior):
+    def fly(self):
+        return f" 하늘을 못 날아갑니다~"
+class SwimmingBehavior:
     def swim(self):
         return f"{self.__name}이(가) 수영을 합니다."
 
 class Pokemon:
-    def __init__(self, name):
+    def __init__(self, name,hp,fly):
         self.__name = name
-
+        self.hp=hp
+        self.fly=fly
     def attack(self):
         print("공격~")
 
@@ -40,15 +43,20 @@ class Pokemon:
         return self.__name +' + '+ target.__name
     def __repr__(self):
         return self.__name+"repr임"
-class Charizard(Pokemon, FlyingMixin):
+class Charizard(Pokemon):
     pass
 
-class Gyarados(Pokemon, SwimmingMixin):
+class Gyarados(Pokemon):
     pass
 
-g1 = Gyarados("갸라도스")
-c1 = Charizard("리자몽")
-print(g1)
+#리스코프 치환법칙 하위는 상위 완벽하게 대치 가능 따라서 연관관계가 있는게 상속을 받더라도 연관관계를 갖고있을수있어
+nofly=NoFly()
+g1 = Gyarados("갸라도스",120,nofly)
+#NoFly는 Fly한테 상속받은 fly를 기반으로..
+wings=FlyingBehavior()
+c1 = Charizard("리자몽",120,wings)
+print(c1.fly.fly())#c1은 리자몽 객체 fly는 flying behavior의 객체 그것의 함수 fly실행
+print(g1.fly.fly())
 print(repr(g1))
 print(c1)
 print(g1+c1)
@@ -61,4 +69,3 @@ print(str(g1))
 
 #부리 객체랑 꼬리 객체가 필요한것(다른 클래스의 객체가 필요함),,
 #설계도에서 화살표는 상속 마름모는 has_a(연관관계)를 나타냄
-
