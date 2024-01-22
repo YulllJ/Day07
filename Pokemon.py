@@ -233,6 +233,6 @@ def main():
 
 import random
 import sys
-if __name__ == "__main__":
+if __name__ == "__main__":#이런식으로 하면 각 함수마다 실행시킬수 있을지도...? 모듈간에 기능을 보는건강
    main()
 
