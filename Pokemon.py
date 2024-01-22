@@ -104,6 +104,8 @@ def print_game():
 def select(player):
     print("Select a monster:")
     for index, each_monster in enumerate(player.my_monster):
+        #enumerate 함수는 반복문에서 현재 원소뿐만 아니라 해당 원소의 인덱스도 함께 사용해야 하는 경우에 유용
+        #iterator는 값을 하나씩 차례대로 꺼낼 수 있는 객체
         print(f"{index + 1}. {each_monster.name}")
 
     while True:
